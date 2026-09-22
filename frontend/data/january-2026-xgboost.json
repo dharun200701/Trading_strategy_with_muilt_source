@@ -1,0 +1,10 @@
+[
+  {"date":"2026-01-05","actual":"DOWN","prediction":"DOWN"},
+  {"date":"2026-01-06","actual":"DOWN","prediction":"DOWN"},
+  {"date":"2026-01-13","actual":"DOWN","prediction":"NEUTRAL"},
+  {"date":"2026-01-14","actual":"NEUTRAL","prediction":"NEUTRAL"},
+  {"date":"2026-01-16","actual":"NEUTRAL","prediction":"NEUTRAL"},
+  {"date":"2026-01-19","actual":"NEUTRAL","prediction":"NEUTRAL"},
+  {"date":"2026-01-20","actual":"DOWN","prediction":"DOWN"},
+  {"date":"2026-01-22","actual":"NEUTRAL","prediction":"NEUTRAL"}
+]

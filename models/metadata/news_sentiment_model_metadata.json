@@ -1,0 +1,24 @@
+{
+  "model_name": "news_sentiment_model",
+  "base_model": "ProsusAI/finbert",
+  "training_data_path": "D:\\banking-ai-trading\\data\\processed\\news\\HDFCBANK_sentiment_training.csv",
+  "train_rows": 548,
+  "validation_rows": 117,
+  "test_rows": 118,
+  "class_distribution": {
+    "NEUTRAL": 460,
+    "NEGATIVE": 167,
+    "POSITIVE": 156
+  },
+  "label_source": [
+    "WEAK_LABEL"
+  ],
+  "training_timestamp_utc": "2026-09-18T18:16:07.148342+00:00",
+  "max_sequence_length": 128,
+  "epochs": 1,
+  "learning_rate": 2e-05,
+  "ground_truth_evaluation_available": false,
+  "limitations": [
+    "Labels are weak/pseudo-labels from FinBERT; manually validated ground truth is not available."
+  ]
+}

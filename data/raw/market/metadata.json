@@ -1,0 +1,19 @@
+{
+  "source": "NSE India",
+  "provider": "nsepython",
+  "symbol": "HDFCBANK",
+  "series": "EQ",
+  "frequency": "daily",
+  "requested_start_date": "2021-09-19",
+  "requested_end_date": "2026-09-18",
+  "actual_first_date": "2021-09-20",
+  "actual_last_date": "2026-09-18",
+  "existing_rows": 247,
+  "newly_downloaded_rows": 1032,
+  "final_row_count": 1237,
+  "download_timestamp_utc": "2026-09-18T17:35:58.955533",
+  "validation_status": "PASSED",
+  "chunks_requested": 9,
+  "chunks_successful": 9,
+  "chunks_failed": 0
+}

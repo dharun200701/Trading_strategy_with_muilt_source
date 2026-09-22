@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HDFC Bank market intelligence dashboard." />
+    <title>HDFC Bank | Market Intelligence</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topline">
+        <div class="brand-group">
+          <div class="brand-row">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span class="eyebrow">Market desk</span>
+          </div>
+          <h1>HDFC BANK <span class="ticker">NSE · HDFCBANK</span></h1>
+          <p class="subtitle">Equity overview and trading signal monitor</p>
+        </div>
+        <button class="refresh-button" id="load-data" type="button">
+          <span class="refresh-icon" aria-hidden="true">↻</span>
+          <span class="button-label">Refresh data</span>
+        </button>
+      </header>
+
+      <div class="status-row" aria-live="polite">
+        <span id="market-status-label" class="market-status-label">Loading market data</span>
+        <span>Last updated: <strong id="last-updated">--:--:--</strong></span>
+      </div>
+      <p id="global-status" class="global-status" role="status" aria-live="polite">Loading market desk...</p>
+
+      <section class="hero-grid">
+        <article class="price-hero">
+          <span class="section-kicker">Latest close</span>
+          <strong id="latest-price">Unavailable</strong>
+          <span id="daily-change" class="price-change">Unavailable</span>
+          <span class="hero-caption">Latest available NSE session</span>
+        </article>
+
+        <article class="prediction-card">
+          <div class="panel-header">
+            <div>
+              <span class="section-kicker">Model signal</span>
+              <h2>Signal</h2>
+            </div>
+            <span id="prediction-badge" class="direction-badge">Unavailable</span>
+          </div>
+          <div class="prediction-main">
+            <strong id="prediction-detail">Unavailable</strong>
+            <span>next session</span>
+          </div>
+          <div class="confidence-track" aria-label="Prediction confidence">
+            <span id="prediction-confidence-bar"></span>
+          </div>
+          <div class="prediction-meta">
+            <span>Confidence</span>
+            <strong id="confidence-value">0%</strong>
+          </div>
+        </article>
+
+        <article class="signal-card">
+          <span class="section-kicker">Action plan</span>
+          <strong id="signal-detail">Unavailable</strong>
+          <span id="suggestion-copy">Waiting for market data</span>
+          <div class="suggestion-levels">
+            <span>Reference <strong id="reference-price">Unavailable</strong></span>
+            <span>Protective stop <strong id="stop-price">Unavailable</strong></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="workspace-grid">
+        <article class="panel chart-panel">
+          <div class="panel-header">
+            <div>
+              <span class="section-kicker">Market structure</span>
+              <h2>Price and trend</h2>
+            </div>
+            <div class="timeframe-control" role="group" aria-label="Chart timeframe">
+              <button class="timeframe active" data-timeframe="1d" type="button">1D</button>
+              <button class="timeframe" data-timeframe="1m" type="button">1M</button>
+              <button class="timeframe" data-timeframe="3m" type="button">3M</button>
+            </div>
+          </div>
+          <div id="chart-message" class="chart-message"></div>
+          <div class="chart-wrap">
+            <div id="price-chart" aria-label="HDFC Bank price chart">Loading chart...</div>
+          </div>
+        </article>
+
+        <article class="panel risk-panel">
+          <div class="panel-header">
+            <div>
+              <span class="section-kicker">Risk controls</span>
+              <h2>Position guardrails</h2>
+            </div>
+            <span id="risk-status" class="risk-state">Unavailable</span>
+          </div>
+          <p class="risk-explainer">Position sizing and stop levels are used to manage downside exposure. They are decision aids, not guaranteed outcomes.</p>
+          <div class="risk-highlight">
+            <span>Suggested position</span>
+            <strong id="position-size">Unavailable</strong>
+            <small>units</small>
+          </div>
+          <dl class="data-list">
+            <div class="data-row">
+              <dt>Maximum loss budget</dt>
+              <dd id="risk-per-trade">Unavailable</dd>
+            </div>
+            <div class="data-row">
+              <dt>Stop distance</dt>
+              <dd id="stop-loss">Unavailable</dd>
+            </div>
+            <div class="data-row">
+              <dt>Current volatility</dt>
+              <dd id="volatility">Unavailable</dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="trade-decision panel" aria-label="Trade decision">
+        <div class="panel-header trade-decision-header">
+          <div>
+            <span class="section-kicker">Trade decision</span>
+            <h2>What the model suggests</h2>
+          </div>
+          <span id="trade-decision-source" class="panel-note">Model-based analysis</span>
+        </div>
+
+        <div class="trade-decision-grid">
+          <div id="trade-action-card" class="trade-action-card">
+            <span class="trade-action-label">Current action</span>
+            <strong id="trade-action">Loading</strong>
+            <p id="trade-guidance">Reading the latest market and model data...</p>
+          </div>
+
+          <div class="trade-levels" aria-label="Trade price levels">
+            <div class="trade-level">
+              <span>Reference price</span>
+              <strong id="trade-reference">Not available</strong>
+            </div>
+            <div class="trade-level">
+              <span>Suggested target</span>
+              <strong id="trade-target">Not available</strong>
+            </div>
+            <div class="trade-level risk-level">
+              <span>Protective stop</span>
+              <strong id="trade-stop">Not available</strong>
+            </div>
+          </div>
+
+          <div class="trade-risk-summary">
+            <span class="trade-action-label">Risk management</span>
+            <div class="trade-risk-row">
+              <span>Stop distance</span>
+              <strong id="trade-stop-distance">Not available</strong>
+            </div>
+            <div class="trade-risk-row">
+              <span>Position guide</span>
+              <strong id="trade-position">Not available</strong>
+            </div>
+            <div class="trade-risk-row">
+              <span>Volatility</span>
+              <strong id="trade-volatility">Not available</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel news-panel">
+        <div class="panel-header">
+          <div>
+            <span class="section-kicker">Event monitor</span>
+            <h2>Recent HDFC Bank news</h2>
+          </div>
+          <span class="panel-note">Observed market reaction</span>
+        </div>
+        <div id="news-list" class="news-list">
+          <p class="unavailable">News unavailable</p>
+        </div>
+      </section>
+
+      <section class="panel performance-panel" aria-label="January 2026 Model 1 performance">
+        <div class="panel-header">
+          <div>
+            <span class="section-kicker">Model performance</span>
+            <h2>January 2026: Actual vs XGBoost Prediction</h2>
+          </div>
+          <span class="panel-note">Model 1 — XGBoost</span>
+        </div>
+
+        <div class="performance-summary">
+          <div class="performance-primary">
+            <span>Overall model accuracy</span>
+            <strong>74.49%</strong>
+          </div>
+          <div class="performance-metric">
+            <span>Evaluation period</span>
+            <strong>January 2026</strong>
+          </div>
+          <div class="performance-metric">
+            <span>Trading days</span>
+            <strong id="january-trading-days">Not available</strong>
+          </div>
+          <div class="performance-metric">
+            <span>January accuracy</span>
+            <strong id="january-accuracy">Not available</strong>
+          </div>
+          <div class="performance-metric">
+            <span>Correct / incorrect</span>
+            <strong><span id="january-correct">Not available</span> / <span id="january-incorrect">Not available</span></strong>
+          </div>
+        </div>
+
+        <div id="performance-message" class="performance-message" role="status" aria-live="polite">Loading January 2026 comparison...</div>
+        <div class="performance-chart-wrap">
+          <div id="january-performance-chart" aria-label="January 2026 actual market movement versus XGBoost prediction">Loading chart...</div>
+        </div>
+      </section>
+
+      <footer>
+        <span>Not financial advice</span>
+        <span>Market source: NSE India via nsepython</span>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

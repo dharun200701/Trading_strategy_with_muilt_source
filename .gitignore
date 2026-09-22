@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*.pkl
+*.csv
+*.parquet
+.ipynb_checkpoints/
+.DS_Store
+node_modules/
+frontend/dist/
+frontend/.vite/
+reports/*.json
+reports/**/*.json
+models/*.pkl
+models/*.joblib
+
+# Trained ML models
+models/trained/

@@ -1,0 +1,221 @@
+{
+  "model_name": "HDFCBANK XGBoost",
+  "model_type": "XGBClassifier",
+  "symbol": "HDFCBANK",
+  "data_source": "NSE India",
+  "provider": "nsepython",
+  "dataset_path": "D:\\banking-ai-trading\\data\\raw\\market\\HDFCBANK_NSE_raw.csv",
+  "training_timestamp_utc": "2026-09-19T08:23:23.674046+00:00",
+  "dataset_first_date": "2021-09-20",
+  "dataset_last_date": "2026-09-18",
+  "dataset_rows": 1237,
+  "feature_rows": 1037,
+  "feature_count": 74,
+  "feature_names": [
+    "previous_close",
+    "Open",
+    "High",
+    "Low",
+    "last_price",
+    "Close",
+    "average_price",
+    "Volume",
+    "turnover_lacs",
+    "NO_OF_TRADES",
+    "delivery_quantity",
+    "delivery_percentage",
+    "daily_return",
+    "return_2d",
+    "return_3d",
+    "return_5d",
+    "return_10d",
+    "return_20d",
+    "return_30d",
+    "high_low_range",
+    "open_close_change",
+    "gap_pct",
+    "close_position",
+    "sma_5",
+    "close_over_sma5",
+    "sma_10",
+    "close_over_sma10",
+    "sma_20",
+    "close_over_sma20",
+    "sma_50",
+    "close_over_sma50",
+    "sma_100",
+    "close_over_sma100",
+    "sma_200",
+    "close_over_sma200",
+    "ema_5",
+    "ema_10",
+    "ema_20",
+    "ema_50",
+    "ema5_over_ema20",
+    "ema10_over_ema50",
+    "sma5_over_sma20",
+    "sma20_over_sma50",
+    "sma50_over_sma200",
+    "rsi_14",
+    "macd",
+    "macd_signal",
+    "macd_histogram",
+    "roc_5",
+    "roc_10",
+    "roc_20",
+    "atr_14",
+    "atr_pct",
+    "rolling_volatility_5",
+    "rolling_volatility_10",
+    "rolling_volatility_20",
+    "rolling_volatility_30",
+    "bollinger_upper",
+    "bollinger_lower",
+    "bollinger_width",
+    "bollinger_pct_b",
+    "volume_change",
+    "volume_sma_5",
+    "volume_sma_10",
+    "volume_sma_20",
+    "volume_sma_50",
+    "volume_ratio",
+    "volume_zscore",
+    "distance_from_high_10",
+    "distance_from_low_10",
+    "distance_from_high_20",
+    "distance_from_low_20",
+    "distance_from_high_50",
+    "distance_from_low_50"
+  ],
+  "target_definition": "Next trading day return classified as UP, DOWN, or NEUTRAL.",
+  "target_threshold": 0.01,
+  "train_rows": 725,
+  "validation_rows": 156,
+  "test_rows": 156,
+  "train_first_date": "2022-07-07",
+  "train_last_date": "2025-06-13",
+  "validation_first_date": "2025-06-16",
+  "validation_last_date": "2026-01-29",
+  "test_first_date": "2026-01-30",
+  "test_last_date": "2026-09-17",
+  "class_distribution": {
+    "NEUTRAL": 605,
+    "UP": 147,
+    "DOWN": 129
+  },
+  "class_weights": {
+    "0": 1.997732426303855,
+    "1": 2.2764857881136953,
+    "2": 0.48539944903581267
+  },
+  "model_parameters": {
+    "n_estimators": 400,
+    "max_depth": 3,
+    "learning_rate": 0.03,
+    "min_child_weight": 5,
+    "subsample": 0.8,
+    "colsample_bytree": 0.9,
+    "gamma": 0.05,
+    "reg_alpha": 0.1,
+    "reg_lambda": 2.0
+  },
+  "metrics": {
+    "accuracy": 0.5256410256410257,
+    "precision": 0.25034013605442174,
+    "recall": 0.321455938697318,
+    "f1": 0.24981684981684982,
+    "confusion_matrix": [
+      [
+        1,
+        1,
+        28
+      ],
+      [
+        1,
+        0,
+        38
+      ],
+      [
+        3,
+        3,
+        81
+      ]
+    ],
+    "classification_report": {
+      "UP": {
+        "precision": 0.2,
+        "recall": 0.03333333333333333,
+        "f1-score": 0.05714285714285714,
+        "support": 30.0
+      },
+      "DOWN": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 39.0
+      },
+      "NEUTRAL": {
+        "precision": 0.5510204081632653,
+        "recall": 0.9310344827586207,
+        "f1-score": 0.6923076923076923,
+        "support": 87.0
+      },
+      "accuracy": 0.5256410256410257,
+      "macro avg": {
+        "precision": 0.25034013605442174,
+        "recall": 0.321455938697318,
+        "f1-score": 0.24981684981684982,
+        "support": 156.0
+      },
+      "weighted avg": {
+        "precision": 0.34576138147566715,
+        "recall": 0.5256410256410257,
+        "f1-score": 0.397083685545224,
+        "support": 156.0
+      }
+    },
+    "actual_distribution": {
+      "2": 87,
+      "1": 39,
+      "0": 30
+    },
+    "predicted_distribution": {
+      "2": 147,
+      "0": 5,
+      "1": 4
+    }
+  },
+  "baseline": {
+    "majority_class": "NEUTRAL",
+    "accuracy": 0.5576923076923077
+  },
+  "predicted_distribution": {
+    "NEUTRAL": 147,
+    "UP": 5,
+    "DOWN": 4
+  },
+  "actual_test_distribution": {
+    "NEUTRAL": 87,
+    "DOWN": 39,
+    "UP": 30
+  },
+  "probability_analysis": {
+    "UP": {
+      "mean": 0.17556588351726532,
+      "minimum": 0.019913187250494957,
+      "maximum": 0.5249468088150024
+    },
+    "DOWN": {
+      "mean": 0.18235142529010773,
+      "minimum": 0.03435976058244705,
+      "maximum": 0.4952673614025116
+    },
+    "NEUTRAL": {
+      "mean": 0.6420826315879822,
+      "minimum": 0.31833434104919434,
+      "maximum": 0.939106285572052
+    }
+  },
+  "validation_f1": 0.34911475138578635,
+  "random_state": 42
+}

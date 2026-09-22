@@ -1,0 +1,21 @@
+{
+  "version": "v3",
+  "symbol": "HDFCBANK",
+  "market": "NSE",
+  "dataset": {
+    "rows": 1237,
+    "first_date": "2021-09-20",
+    "last_date": "2026-09-18"
+  },
+  "split": {
+    "training": "2021-2024",
+    "validation": "2025",
+    "test": "2026"
+  },
+  "test_is_untouched": true,
+  "feature_count": 82,
+  "target_threshold": 0.01,
+  "best_model": "xgboost",
+  "sklearn_compatibility": "1.9.1",
+  "xgboost_compatibility": "3.2.0"
+}

@@ -1,0 +1,321 @@
+{
+  "model_version": "v2",
+  "symbol": "HDFCBANK",
+  "data_source": "NSE India",
+  "provider": "nsepython",
+  "model": "xgboost",
+  "weighted": false,
+  "feature_count": 74,
+  "features": [
+    "previous_close",
+    "Open",
+    "High",
+    "Low",
+    "last_price",
+    "Close",
+    "average_price",
+    "Volume",
+    "turnover_lacs",
+    "NO_OF_TRADES",
+    "delivery_quantity",
+    "delivery_percentage",
+    "return_1d",
+    "return_2d",
+    "return_3d",
+    "return_5d",
+    "return_10d",
+    "return_20d",
+    "high_low_pct",
+    "open_close_pct",
+    "gap_pct",
+    "close_position",
+    "sma_5",
+    "close_over_sma_5",
+    "sma_10",
+    "close_over_sma_10",
+    "sma_20",
+    "close_over_sma_20",
+    "sma_50",
+    "close_over_sma_50",
+    "sma_100",
+    "close_over_sma_100",
+    "sma_200",
+    "close_over_sma_200",
+    "ema_5",
+    "close_over_ema_5",
+    "ema_10",
+    "close_over_ema_10",
+    "ema_20",
+    "close_over_ema_20",
+    "ema_50",
+    "close_over_ema_50",
+    "ema5_over_ema20",
+    "ema10_over_ema50",
+    "rsi_14",
+    "macd",
+    "macd_signal",
+    "macd_histogram",
+    "roc_5",
+    "roc_10",
+    "roc_20",
+    "atr_14",
+    "atr_pct",
+    "volatility_5",
+    "volatility_10",
+    "volatility_20",
+    "volatility_30",
+    "bb_upper",
+    "bb_lower",
+    "bb_width",
+    "bb_percent",
+    "volume_change",
+    "volume_sma_5",
+    "volume_sma_10",
+    "volume_sma_20",
+    "volume_sma_50",
+    "volume_ratio",
+    "volume_zscore",
+    "distance_high_10",
+    "distance_low_10",
+    "distance_high_20",
+    "distance_low_20",
+    "distance_high_50",
+    "distance_low_50"
+  ],
+  "target_threshold": 0.01,
+  "labels": [
+    "UP",
+    "DOWN",
+    "NEUTRAL"
+  ],
+  "train_period": [
+    "2022-07-07",
+    "2024-12-31"
+  ],
+  "validation_period": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "test_period": [
+    "2026-01-01",
+    "2026-09-17"
+  ],
+  "validation_metrics": {
+    "accuracy": 0.657258064516129,
+    "balanced_accuracy": 0.34882029734970915,
+    "macro_precision": 0.3478724679371929,
+    "macro_recall": 0.34882029734970915,
+    "macro_f1": 0.34216807463855714,
+    "confusion_matrix": [
+      [
+        2,
+        8,
+        24
+      ],
+      [
+        3,
+        4,
+        25
+      ],
+      [
+        10,
+        15,
+        157
+      ]
+    ],
+    "classification_report": {
+      "UP": {
+        "precision": 0.13333333333333333,
+        "recall": 0.058823529411764705,
+        "f1-score": 0.08163265306122448,
+        "support": 34.0
+      },
+      "DOWN": {
+        "precision": 0.14814814814814814,
+        "recall": 0.125,
+        "f1-score": 0.13559322033898305,
+        "support": 32.0
+      },
+      "NEUTRAL": {
+        "precision": 0.7621359223300971,
+        "recall": 0.8626373626373627,
+        "f1-score": 0.8092783505154639,
+        "support": 182.0
+      },
+      "accuracy": 0.657258064516129,
+      "macro avg": {
+        "precision": 0.3478724679371929,
+        "recall": 0.34882029734970915,
+        "f1-score": 0.34216807463855714,
+        "support": 248.0
+      },
+      "weighted avg": {
+        "precision": 0.5967048868473861,
+        "recall": 0.657258064516129,
+        "f1-score": 0.6225933590675143,
+        "support": 248.0
+      }
+    },
+    "actual_distribution": {
+      "UP": 34,
+      "DOWN": 32,
+      "NEUTRAL": 182
+    },
+    "predicted_distribution": {
+      "UP": 15,
+      "DOWN": 27,
+      "NEUTRAL": 206
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.4857142857142857,
+    "balanced_accuracy": 0.3355429292929293,
+    "macro_precision": 0.251865174527045,
+    "macro_recall": 0.3355429292929293,
+    "macro_f1": 0.2871148459383754,
+    "confusion_matrix": [
+      [
+        7,
+        0,
+        25
+      ],
+      [
+        8,
+        0,
+        36
+      ],
+      [
+        21,
+        0,
+        78
+      ]
+    ],
+    "classification_report": {
+      "UP": {
+        "precision": 0.19444444444444445,
+        "recall": 0.21875,
+        "f1-score": 0.20588235294117646,
+        "support": 32.0
+      },
+      "DOWN": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 44.0
+      },
+      "NEUTRAL": {
+        "precision": 0.5611510791366906,
+        "recall": 0.7878787878787878,
+        "f1-score": 0.6554621848739496,
+        "support": 99.0
+      },
+      "accuracy": 0.4857142857142857,
+      "macro avg": {
+        "precision": 0.251865174527045,
+        "recall": 0.3355429292929293,
+        "f1-score": 0.2871148459383754,
+        "support": 175.0
+      },
+      "weighted avg": {
+        "precision": 0.3530067374671691,
+        "recall": 0.4857142857142857,
+        "f1-score": 0.40845138055222097,
+        "support": 175.0
+      }
+    },
+    "actual_distribution": {
+      "UP": 32,
+      "DOWN": 44,
+      "NEUTRAL": 99
+    },
+    "predicted_distribution": {
+      "UP": 36,
+      "DOWN": 0,
+      "NEUTRAL": 139
+    }
+  },
+  "baseline_accuracy": 0.5657142857142857,
+  "improvement_over_baseline": -0.08000000000000002,
+  "feature_importance": {
+    "close_over_ema_10": 0.019047703593969345,
+    "Close": 0.01899123191833496,
+    "distance_high_20": 0.017090220004320145,
+    "roc_10": 0.01703766919672489,
+    "atr_pct": 0.016311533749103546,
+    "ema_10": 0.016269369050860405,
+    "ema_20": 0.016220323741436005,
+    "sma_50": 0.01605880819261074,
+    "sma_20": 0.015710093080997467,
+    "volatility_10": 0.015083630569279194,
+    "close_over_sma_10": 0.015055441297590733,
+    "return_1d": 0.015052886679768562,
+    "ema_50": 0.015013311989605427,
+    "ema5_over_ema20": 0.015007962472736835,
+    "return_10d": 0.014999390579760075,
+    "previous_close": 0.01495142187923193,
+    "roc_5": 0.014918915927410126,
+    "return_3d": 0.014673502184450626,
+    "bb_percent": 0.014583960175514221,
+    "distance_high_10": 0.014582397416234016,
+    "bb_upper": 0.014465082436800003,
+    "distance_low_10": 0.014397871680557728,
+    "open_close_pct": 0.014337870292365551,
+    "close_over_ema_20": 0.014281564392149448,
+    "turnover_lacs": 0.014060219749808311,
+    "sma_200": 0.01399077009409666,
+    "High": 0.013947413302958012,
+    "last_price": 0.013896801508963108,
+    "NO_OF_TRADES": 0.013801404275000095,
+    "distance_low_50": 0.01377546414732933,
+    "close_over_sma_5": 0.013740535825490952,
+    "atr_14": 0.013700791634619236,
+    "ema10_over_ema50": 0.013658853247761726,
+    "volatility_5": 0.013654675334692001,
+    "volume_zscore": 0.013558675535023212,
+    "volume_sma_20": 0.01350391749292612,
+    "close_position": 0.013440621085464954,
+    "delivery_quantity": 0.013353913091123104,
+    "close_over_ema_50": 0.013320669531822205,
+    "distance_high_50": 0.013313603587448597,
+    "close_over_sma_20": 0.013188039883971214,
+    "roc_20": 0.013166749849915504,
+    "volume_change": 0.013064192607998848,
+    "close_over_sma_50": 0.01302073709666729,
+    "macd_histogram": 0.013006065040826797,
+    "Open": 0.012918434105813503,
+    "volume_ratio": 0.012818687595427036,
+    "Low": 0.012763390317559242,
+    "return_20d": 0.012663902714848518,
+    "return_5d": 0.012643715366721153,
+    "volatility_30": 0.012625343166291714,
+    "delivery_percentage": 0.01243746466934681,
+    "gap_pct": 0.012410532683134079,
+    "average_price": 0.01235396508127451,
+    "close_over_ema_5": 0.012290164828300476,
+    "high_low_pct": 0.01228849682956934,
+    "rsi_14": 0.012165814638137817,
+    "return_2d": 0.0120645547285676,
+    "macd_signal": 0.012057007290422916,
+    "Volume": 0.011935368180274963,
+    "sma_100": 0.011908150278031826,
+    "volume_sma_50": 0.011768573895096779,
+    "close_over_sma_200": 0.011670202016830444,
+    "sma_10": 0.011563104577362537,
+    "volume_sma_5": 0.011484265327453613,
+    "volatility_20": 0.011392050422728062,
+    "bb_lower": 0.01133172120898962,
+    "bb_width": 0.011318079195916653,
+    "distance_low_20": 0.011169442906975746,
+    "ema_5": 0.011031657457351685,
+    "volume_sma_10": 0.010489541105926037,
+    "close_over_sma_100": 0.010387826710939407,
+    "macd": 0.010102834552526474,
+    "sma_5": 0.009639370255172253
+  },
+  "leakage_control": {
+    "chronological_split": true,
+    "future_return_used_only_for_target": true,
+    "test_period_used_for_tuning": false,
+    "test_period": "2026"
+  }
+}
